@@ -7,7 +7,7 @@ print_gpu_usage() {
 
     output=""
     for index in ${!gpuUsage[*]}; do
-        if [ "${gpuUsage[$index]}" != "100" ]; then
+        if [[ "${memUsage[$index]}" != "100" && "${gpuUsage[$index]}" != "100" ]]; then
             mem=$(printf "%02d" ${memUsage[$index]})
             gpu=$(printf "%02d" ${gpuUsage[$index]})
             if [[ "$mem" < "20" && "$gpu" < "40" ]]; then
